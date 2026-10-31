@@ -1,0 +1,42 @@
+{
+  "name": "@local/dsh-wechat-screenshot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A WeChat-style split screenshot control for the DSH composer with hide/no-hide capture, region selection, annotation, copy/save, and direct insert into the chat.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "screenshot",
+    "wechat",
+    "plugin"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
